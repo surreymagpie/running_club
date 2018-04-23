@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def app_name
-    Rails.application.class.parent.to_s.titleize
+    ENV['SITE_NAME'] || Rails.application.class.parent.to_s.titleize
   end
 end
