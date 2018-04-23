@@ -13,17 +13,22 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper, type: :helper do
 
   describe 'page_title' do
+
+    before do
+      allow(ENV).to receive(:[]).with('site_name') {'Our Running Club' }
+    end
+
     context 'when none provided' do
       it 'provides the site name as default' do
         title=""
-        expect(helper.page_title(title)).to eq 'Running Club'
+        expect(helper.page_title(title)).to eq 'Our Running Club'
       end
     end
 
     context 'when string is provided' do
       it 'prepends the title with the string' do
         title = 'Something'
-        expect(helper.page_title(title)).to eq 'Something | Running Club'
+        expect(helper.page_title(title)).to eq 'Something | Our Running Club'
       end
     end
   end
