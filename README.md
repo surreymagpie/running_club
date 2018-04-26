@@ -1,24 +1,29 @@
-# README
+[![Build Status](https://travis-ci.org/surreymagpie/running_club.svg?branch=master)](https://travis-ci.org/surreymagpie/running_club)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Running Club
 
-Things you may want to cover:
+### Introduction
+This application is a project aimed at providing a website and membership management system for a UK Athletics affiliated running or athletics club.
 
-* Ruby version
+For local development, you will need ruby (currently v2.4.1) and postgresql already installed. Clone this repository:
 
-* System dependencies
+```bash
 
-* Configuration
+git clone https://github.com/surreymagpie/running_club.git
 
-* Database creation
+```
 
-* Database initialization
+then run ` bin/setup ` which should download all of the required gems and setup your database. Then run ` bin/guard ` to start a server, watch for bundle changes and automatically run the test suite on any changes.
 
-* How to run the test suite
+### Configuration
 
-* Services (job queues, cache servers, search engines, etc.)
+Make a copy of the example configuration and edit it for your needs:
 
-* Deployment instructions
+```bash
 
-* ...
+cp config/example.application.yml config/application.yml
+
+```
+
+### Testing
+To run the test suite alone, use `bin/rspec`.
