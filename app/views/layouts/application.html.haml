@@ -16,4 +16,7 @@
     %nav
       .logo
         = link_to app_name, root_path, class: 'site__name', title: 'Home'
+    %p.notice = notice
+    %p.alert  = alert
+
     = yield
