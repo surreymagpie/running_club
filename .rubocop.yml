@@ -1,1 +1,24 @@
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.4
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/AbcSize:
+  Max: 19
+
+Style/Documentation:
+  Enabled: false
+
+Style/NestedParenthesizedCalls:
+  Enabled: false
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
