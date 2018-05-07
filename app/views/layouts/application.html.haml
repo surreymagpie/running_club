@@ -13,7 +13,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    %nav
-      .logo
-        = link_to app_name, root_path, class: 'site__name', title: 'Home'
-    = yield
+    = render 'header'
+    = render 'flash_messages' unless flash.empty?
+
+    %main.main-content= yield

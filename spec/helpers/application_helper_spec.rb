@@ -15,7 +15,7 @@ RSpec.describe ApplicationHelper, type: :helper do
   describe 'page_title' do
 
     before do
-      allow(ENV).to receive(:[]).with('site_name') {'Our Running Club' }
+      allow(ENV).to receive(:[]).with('site_name') { 'Our Running Club' }
     end
 
     context 'when none provided' do
