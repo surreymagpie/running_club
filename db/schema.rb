@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_210511) do
+ActiveRecord::Schema.define(version: 2018_05_27_200101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2018_05_21_210511) do
     t.string "urn", limit: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members_memberships", id: false, force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "membership_id", null: false
+    t.index ["member_id", "membership_id"], name: "index_members_memberships_on_member_id_and_membership_id"
+    t.index ["membership_id", "member_id"], name: "index_members_memberships_on_membership_id_and_member_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "expires_at"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +63,5 @@ ActiveRecord::Schema.define(version: 2018_05_21_210511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "memberships", "users"
 end

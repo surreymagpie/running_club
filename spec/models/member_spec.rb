@@ -37,4 +37,10 @@ RSpec.describe Member, type: :model do
       end
     end
   end
+
+  context 'associations' do
+    subject { Member.new }
+    it { expect(subject).to respond_to :users }
+    it { expect(subject).to respond_to :memberships }
+  end
 end
