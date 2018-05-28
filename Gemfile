@@ -39,6 +39,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print', require: 'ap'
+  gem 'better_errors'
   gem 'guard-bundler', require: false
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false
