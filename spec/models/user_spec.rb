@@ -14,4 +14,10 @@ RSpec.describe User, type: :model do
       expect(build :user, password: '').to be_invalid
     end
   end
+
+  describe 'associations' do
+    subject { User.new }
+    it { expect(subject).to respond_to :members }
+    it { expect(subject).to respond_to :memberships }
+  end
 end

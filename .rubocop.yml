@@ -1,6 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/*.rb'
   TargetRubyVersion: 2.4
 
 Metrics/MethodLength:
@@ -9,6 +12,12 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 19
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false

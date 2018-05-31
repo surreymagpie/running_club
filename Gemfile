@@ -35,10 +35,15 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'ffaker'
+  gem 'pry-rails'
   gem 'rspec-rails'
 end
 
 group :development do
+  gem 'awesome_print', require: 'ap'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'guard-bundler', require: false
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false
