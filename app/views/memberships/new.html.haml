@@ -1,0 +1,21 @@
+%h1 New Membership
+= form_for @membership do |f|
+  - @membership.members.each_with_index do |member, index|
+    = f.fields_for :members, member do |m|
+      .member-form
+        %h3 Member #{index + 1}
+        .form-group
+          = m.label :first_name
+          = m.text_field :first_name
+        .form-group
+          = m.label :last_name
+          = m.text_field :last_name
+        .form-group
+          = m.label :date_of_birth
+          = m.date_field :date_of_birth
+        .form-group
+          = m.label :gender, 'Male', value: 'm'
+          = m.radio_button :gender, 'm'
+          = m.radio_button :gender, 'f'
+          = m.label :gender, 'Female', value: 'f'
+  = f.submit
